@@ -1,0 +1,19 @@
+name: Deploy to Raspberry Pi
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: [self-hosted, raspberry-pi]
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Run Hardware Script
+        run: |
+          echo "Executing pipeline on Raspberry Pi..."
+          # python3 scripts/deploy.py
